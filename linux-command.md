@@ -23,3 +23,19 @@ find . -name "*.srt" -exec rm -r {} \;
     --> output softmaker-freeoffice-2016:i386          install
 2. Remove package
   - sudo dpkg -r softmaker-freeoffice-2016:i386
+### Clean journal
+```
+journalctl --rotate
+journalctl --vacuum-time=1s
+```
+### List devices
+```
+lsblk --> List block devices (for example, the drives).
+lspci --> List PCI devices.
+lsusb --> List USB devices.
+```
+### Safely remove device
+```
+udisksctl unmount -b /dev/sda1
+udisksctl power-off -b /dev/sda1
+```
